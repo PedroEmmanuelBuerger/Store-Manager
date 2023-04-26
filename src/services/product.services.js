@@ -13,4 +13,9 @@ const getById = async (productId) => {
   return { type: null, message: product }; 
 };
 
-module.exports = { getAll, getById };
+const saveNewProduct = async (name) => {
+  const newProduct = await productModel.saveNewProduct(name);
+  return { type: null, message: newProduct };
+};
+
+module.exports = { getAll, getById, saveNewProduct };

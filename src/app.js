@@ -8,6 +8,8 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
+app.use(express.json());
+
 app.use('/products', productRouter);
 
 app.use((error, _req, res, _next) => res.status(error.status).json({ message: error.message }));

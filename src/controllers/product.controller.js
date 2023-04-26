@@ -14,7 +14,15 @@ const getById = async (req, res) => {
   return res.status(200).json(result.message);
 };
 
+const saveNewProduct = async (req, res) => {
+  const { name } = req.body;
+  const result = await productServices.saveNewProduct(name);
+
+  return res.status(201).json(result.message);
+};
+
 module.exports = {
   getAll,
   getById,
+  saveNewProduct,
 };
