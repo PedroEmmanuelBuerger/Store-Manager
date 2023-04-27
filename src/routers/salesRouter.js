@@ -8,4 +8,8 @@ const { saleMiddleware, quantitySaleMiddleware } = require('../middlewares');
 salesRouter.post('/', saleMiddleware,
   quantitySaleMiddleware, salesController.addNewSale);
 
+salesRouter.get('/', salesController.getAll);
+
+salesRouter.get('/:id', salesController.getById);
+
 module.exports = salesRouter;

@@ -1,5 +1,4 @@
-const { productModel } = require('../models');
-const { salesModel } = require('../models');
+const { productModel, salesModel } = require('../models');
 
 const addNewSale = async (sales) => {
   const verifySales = await Promise.all(
@@ -13,6 +12,21 @@ const addNewSale = async (sales) => {
   return { type: null, message: newSale };
 };
 
+const getAll = async () => {
+  const result = await salesModel.getAll();
+  return { type: null, message: result };
+};
+
+const getById = async (id) => {
+  const result = await salesModel.getById(id);
+  if (result.length <= 0) {
+    return { type: 'SALE_NOT_FOUND', message: 'Sale not found' };
+  }
+  return { type: null, message: result };
+};
+
 module.exports = {
   addNewSale,
+  getAll,
+  getById,
 };
