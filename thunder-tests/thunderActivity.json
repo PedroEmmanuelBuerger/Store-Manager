@@ -32,6 +32,25 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/ Copy Copy",
+    "url": "http://localhost:3001/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-26T18:29:54.181Z",
+    "modified": "2023-04-27T18:00:33.507Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": -1\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "09ccfb1a-ad46-4e3b-abf7-e4e776ee78c4",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/ Copy Copy Copy",
     "url": "http://localhost:3001/products",
     "method": "POST",
     "sortNum": 0,
