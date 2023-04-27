@@ -5,6 +5,8 @@ const productRouter = express.Router();
 const { createProduct } = require('../middlewares');
 const { productController } = require('../controllers');
 
+productRouter.put('/:id', createProduct, productController.updateProduct);
+
 productRouter.get('/', productController.getAll);
 
 productRouter.get('/:id',

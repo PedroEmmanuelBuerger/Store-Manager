@@ -18,4 +18,14 @@ const saveNewProduct = async (name) => {
   return { type: null, message: newProduct };
 };
 
-module.exports = { getAll, getById, saveNewProduct };
+const updateProduct = async (name, id) => {
+  const product = await productModel.getById(id);
+  if (!product) {
+    return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
+  }
+  const result = await productModel.updateProduct(name, id);
+
+  return { type: null, message: result };
+};
+
+module.exports = { getAll, getById, saveNewProduct, updateProduct };

@@ -78,5 +78,81 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "b40e9976-2204-44ee-876a-9c3639415b6d",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/1",
+    "url": "http://localhost:3001/products/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-27T21:06:04.961Z",
+    "modified": "2023-04-27T21:06:04.961Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "30ab7020-8d1a-4e77-a4c5-ffc39a745821",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/1",
+    "url": "http://localhost:3001/products/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-04-27T21:08:28.768Z",
+    "modified": "2023-04-27T21:11:35.966Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"teste\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "dede6738-2bb0-4349-86bc-0fa0e91c0a01",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/2",
+    "url": "http://localhost:3001/products/2",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-04-27T21:11:31.534Z",
+    "modified": "2023-04-27T21:11:31.534Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"teste\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c3e87d4d-9a3a-4139-bcc4-25b02410d430",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/15",
+    "url": "http://localhost:3001/products/15",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-04-27T21:11:45.679Z",
+    "modified": "2023-04-27T21:11:45.679Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"teste\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
