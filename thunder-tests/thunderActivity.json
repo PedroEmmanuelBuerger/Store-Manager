@@ -1,158 +1,16 @@
 [
   {
-    "_id": "f0548603-f327-460c-84ee-0a678419110c",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:3001/",
-    "url": "http://localhost:3001/products",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-26T18:29:54.181Z",
-    "modified": "2023-04-26T18:41:57.458Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
     "_id": "07907e61-a0aa-42ae-a8e0-e27df4319057",
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/ Copy",
     "url": "http://localhost:3001/products/2",
-    "method": "GET",
+    "method": "DELETE",
     "sortNum": 0,
     "created": "2023-04-26T18:29:54.181Z",
-    "modified": "2023-04-27T18:31:19.258Z",
+    "modified": "2023-04-27T22:50:33.833Z",
     "headers": [],
     "params": [],
-    "tests": []
-  },
-  {
-    "_id": "fb849f87-d42d-42cd-b743-e18eaededee3",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:3001/ Copy Copy",
-    "url": "http://localhost:3001/sales",
-    "method": "POST",
-    "sortNum": 0,
-    "created": "2023-04-26T18:29:54.181Z",
-    "modified": "2023-04-27T18:00:33.507Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": -1\n  }\n]",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "09ccfb1a-ad46-4e3b-abf7-e4e776ee78c4",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:3001/ Copy Copy Copy",
-    "url": "http://localhost:3001/products",
-    "method": "POST",
-    "sortNum": 0,
-    "created": "2023-04-26T18:29:54.181Z",
-    "modified": "2023-04-26T21:58:19.617Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "9c8657b7-a82c-4a46-bfce-f8b8818dbad3",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:3001/ Copy",
-    "url": "http://localhost:3001/sales/1",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-26T18:29:54.181Z",
-    "modified": "2023-04-27T20:19:38.007Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "b40e9976-2204-44ee-876a-9c3639415b6d",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:3001/products/1",
-    "url": "http://localhost:3001/products/1",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-27T21:06:04.961Z",
-    "modified": "2023-04-27T21:06:04.961Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "30ab7020-8d1a-4e77-a4c5-ffc39a745821",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:3001/products/1",
-    "url": "http://localhost:3001/products/1",
-    "method": "PUT",
-    "sortNum": 0,
-    "created": "2023-04-27T21:08:28.768Z",
-    "modified": "2023-04-27T21:11:35.966Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"name\": \"teste\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "dede6738-2bb0-4349-86bc-0fa0e91c0a01",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:3001/products/2",
-    "url": "http://localhost:3001/products/2",
-    "method": "PUT",
-    "sortNum": 0,
-    "created": "2023-04-27T21:11:31.534Z",
-    "modified": "2023-04-27T21:11:31.534Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"name\": \"teste\"\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
-    "_id": "c3e87d4d-9a3a-4139-bcc4-25b02410d430",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:3001/products/15",
-    "url": "http://localhost:3001/products/15",
-    "method": "PUT",
-    "sortNum": 0,
-    "created": "2023-04-27T21:11:45.679Z",
-    "modified": "2023-04-27T21:11:45.679Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"name\": \"teste\"\n}",
-      "form": []
-    },
     "tests": []
   }
 ]
