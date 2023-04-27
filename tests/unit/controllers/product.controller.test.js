@@ -10,6 +10,7 @@ const { productController } = require('../../../src/controllers');
 const { createProduct } = require('../../../src/middlewares');
 
 const { products } = require('./mocks/product.controller.mocks');
+
 describe('testes unitarios da camada controller em relação aos produtos', function () {
   afterEach(function () {
     sinon.restore();

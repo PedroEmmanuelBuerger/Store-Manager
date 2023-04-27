@@ -7,7 +7,7 @@ const addNewSale = async (sales) => {
     [date]);
   
     await Promise.all(
-    sales.map(async (sale) => {
+      sales.map(async (sale) => {
       await connection
         .execute('INSERT INTO sales_products (sale_id, product_id, quantity)VALUES (?, ?, ?)',
         [insertId, sale.productId, sale.quantity]);
