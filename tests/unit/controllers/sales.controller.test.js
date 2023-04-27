@@ -11,7 +11,8 @@ const { saleMiddleware, quantitySaleMiddleware } = require('../../../src/middlew
 
 const { reqBody, resultService,
   resultError, reqBodyWithoutQuantity,
-  reqBodyWithoutProductId, reqbodyWIth0InQuantity } = require('./mocks/sales.controller.mocks');
+  reqBodyWithoutProductId, reqbodyWIth0InQuantity,
+  resultSales, resultSalesId, resultByIdError } = require('./mocks/sales.controller.mocks');
 
 describe('testes unitarios da camada controller em relação ao sales', function () {
   afterEach(function () {
@@ -102,6 +103,56 @@ describe('testes unitarios da camada controller em relação ao sales', function
         message: '"quantity" must be greater than or equal to 1'
       });
       sinon.assert.calledTwice(next);
+    });
+  });
+  describe('teste da função getAll', function () {
+    it('verifica se ele retorna tudo ok', async function () {
+
+      sinon.stub(saleServices, 'getAll').resolves(resultSales);
+
+      const req = {};
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await salesController.getAll(req, res);
+
+
+      expect(res.status).to.have.been.calledWith(200);
+      expect(res.json).to.have.been.calledWith(resultSales.message);
+    });
+  });
+  describe('teste da função getbyId', function () {
+    it('verifica se ao ir todos valores corretos retorna ok', async function () {
+
+      sinon.stub(saleServices, 'getById').resolves(resultSalesId);
+
+      const req = {params: {id: 1}};
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await salesController.getById(req, res);
+
+      expect(res.status).to.have.been.calledWith(200);
+      expect(res.json).to.have.been.calledWith(resultSalesId.message);
+    });
+    it('verifica se ao retornar um erro da service o controller retorna um erro tambem', async function () {
+
+      sinon.stub(saleServices, 'getById').resolves(resultByIdError);
+
+      const req = { params: { id: 15 } };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await salesController.getById(req, res);
+
+      expect(res.status).to.have.been.calledWith(404);
+      expect(res.json).to.have.been.calledWith({ message: resultByIdError.message });
     });
   });
 });

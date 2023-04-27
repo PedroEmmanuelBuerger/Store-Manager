@@ -70,11 +70,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/ Copy",
-    "url": "http://localhost:3001/sales",
+    "url": "http://localhost:3001/sales/1",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-26T18:29:54.181Z",
-    "modified": "2023-04-27T19:42:54.740Z",
+    "modified": "2023-04-27T20:19:38.007Z",
     "headers": [],
     "params": [],
     "tests": []
