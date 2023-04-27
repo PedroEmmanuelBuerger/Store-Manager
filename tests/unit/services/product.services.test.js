@@ -39,4 +39,14 @@ describe('testes unitarios da camada service em relação aos produtos', functio
       expect(result).to.be.an('object');
     });
   });
+  describe('teste da função de create', function () {
+    it('verifica se o retorno da corretamente', async function () {
+      sinon.stub(productModel, 'saveNewProduct').resolves({ id: 4, name: 'pedro' });
+
+      const result = await productServices.saveNewProduct('pedro');
+
+      expect(result).to.be.deep.equal({ type: null, message: { id: 4, name: 'pedro' } });
+      expect(result).to.be.an('object');
+    });
+  });
 });

@@ -7,6 +7,7 @@ chai.use(sinonChai);
 
 const { productServices } = require('../../../src/services');
 const { productController } = require('../../../src/controllers');
+const { createProduct } = require('../../../src/middlewares');
 
 const { products } = require('./mocks/product.controller.mocks');
 describe('testes unitarios da camada controller em relação aos produtos', function () {
@@ -63,6 +64,61 @@ describe('testes unitarios da camada controller em relação aos produtos', func
 
       expect(res.status).to.have.been.calledWith(404);
       expect(res.json).to.have.been.calledWith({ message: 'Product not found'});
+    });
+  });
+  describe('testes de sucesso para a função create', function () {
+    it('verifica se retorna tudo corretamente', async function () {
+      sinon.stub(productServices, 'saveNewProduct').resolves({ type: null, message: { id: 4, name: 'pedro' } });
+
+      const req = {
+        body: { name: 'pedro' },
+      };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await productController.saveNewProduct(req, res);
+
+      expect(res.status).to.have.been.calledWith(201);
+      expect(res.json).to.have.been.calledWith({ id: 4, name: 'pedro' });
+    });
+  });
+  describe('testes de erro para a função create', function () {
+    it('verifica se ao passar um nome com menos de 5 letras retorna um erro', async function () {
+      const req = {
+        body: { name: 'p' },
+      }
+      const res = {};
+      next = sinon.stub();
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await createProduct(req, res, next);
+
+      expect(next).to.have.been.calledWith({
+        status: 422,
+        message: '"name" length must be at least 5 characters long'
+      });
+      sinon.assert.calledOnce(next);
+    }); 
+    it('verifica se ao passar uma chave sem nome retorna um erro', async function () {
+      const req = {
+        body: {},
+      }
+      const res = {};
+      next = sinon.stub();
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await createProduct(req, res, next);
+
+      expect(next).to.have.been.calledWith(
+      { status: 400, message: '"name" is required' }
+      );
+      sinon.assert.calledOnce(next);
     });
   });
 });
