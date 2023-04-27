@@ -4,6 +4,15 @@ const products = [
   { id: 3, name: 'Escudo do Capitão América' }
 ];
 
+const oldProduct = {
+  id: 2, name: 'pedro'
+};
+
+const productSolo = {
+  id: 2, name: 'marcos'
+};
 module.exports = {
   products,
+  productSolo,
+  oldProduct,
 }

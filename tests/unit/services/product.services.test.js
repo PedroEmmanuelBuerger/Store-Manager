@@ -4,7 +4,7 @@ const sinon = require('sinon');
 const { productModel } = require('../../../src/models');
 const { productServices } = require('../../../src/services');
 
-const { products } = require('./mocks/product.services.mocks');
+const { products, productSolo } = require('./mocks/product.services.mocks');
 
 describe('testes unitarios da camada service em relação aos produtos', function () {
   afterEach(function () {
@@ -46,6 +46,25 @@ describe('testes unitarios da camada service em relação aos produtos', functio
       const result = await productServices.saveNewProduct('pedro');
 
       expect(result).to.be.deep.equal({ type: null, message: { id: 4, name: 'pedro' } });
+      expect(result).to.be.an('object');
+    });
+  });
+  describe('teste da função updateProduct', function () {
+    it('verifica se retorna corretamente', async function () {
+      sinon.stub(productModel, 'getById').resolves(productSolo);
+      sinon.stub(productModel, 'updateProduct').resolves(productSolo);
+
+      const result = await productServices.updateProduct('marcos', 2);
+
+      expect(result).to.be.deep.equal({ type: null, message: productSolo });
+      expect(result).to.be.an('object');
+    });
+    it('verifica se retorna um erro ao não encontrar o id que esta buscando', async function () {
+      sinon.stub(productModel, 'getById').resolves(undefined);
+
+      const result = await productServices.updateProduct('marcos', 2);
+
+      expect(result).to.be.deep.equal({ type: 'PRODUCT_NOT_FOUND', message: 'Product not found' });
       expect(result).to.be.an('object');
     });
   });

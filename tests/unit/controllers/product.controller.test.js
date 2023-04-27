@@ -9,7 +9,7 @@ const { productServices } = require('../../../src/services');
 const { productController } = require('../../../src/controllers');
 const { createProduct } = require('../../../src/middlewares');
 
-const { products } = require('./mocks/product.controller.mocks');
+const { products, updatedSale, resultErrorupdate } = require('./mocks/product.controller.mocks');
 
 describe('testes unitarios da camada controller em relação aos produtos', function () {
   afterEach(function () {
@@ -120,6 +120,42 @@ describe('testes unitarios da camada controller em relação aos produtos', func
       { status: 400, message: '"name" is required' }
       );
       sinon.assert.calledOnce(next);
+    });
+  });
+  describe('teste da função updateProduct', function () {
+    it('verifica se retorna corretamente', async function () {
+      sinon.stub(productServices, 'updateProduct').resolves(updatedSale);
+
+      const req = {
+        body: {name: 'julio'},
+        params: {id: 8},
+      };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await productController.updateProduct(req, res);
+
+      expect(res.status).to.have.been.calledWith(200);
+      expect(res.json).to.have.been.calledWith({ id: 8, name: 'julio' });
+    });
+    it('verifica se retorna um erro caso o service retorne um erro', async function () {
+      sinon.stub(productServices, 'updateProduct').resolves(resultErrorupdate);
+
+      const req = {
+        body: { name: 'joana' },
+        params: { id: 999 },
+      };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await productController.updateProduct(req, res);
+
+      expect(res.status).to.have.been.calledWith(404);
+      expect(res.json).to.have.been.calledWith({ message: resultErrorupdate.message });
     });
   });
 });

@@ -42,4 +42,16 @@ describe('testes unitarios da camada model em relação aos produtos', function 
       expect(result).to.be.an('object');
     });
   });
+  describe('teste da função updateProduct', function () {
+    it('verifica se retorna corretamente', async function () {
+      sinon.stub(connection, 'execute')
+        .onFirstCall().resolves()
+        .onSecondCall().resolves([[productSolo]]);
+      
+      const result = await productModel.updateProduct('pedro', 4);
+
+      expect(result).to.be.deep.equal(productSolo);
+      expect(result).to.be.an('object');
+    });
+  });
 });

@@ -5,7 +5,7 @@ const products = [
 ];
 
 const productSolo = {
-  id: 1, name: 'Martelo de Thor'
+  id: 4, name: 'pedro'
 };
 
 module.exports = {
