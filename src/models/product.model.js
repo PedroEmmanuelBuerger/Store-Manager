@@ -39,4 +39,19 @@ const deletProduct = async (id) => {
   return true;
 };
 
-module.exports = { getAll, getById, saveNewProduct, updateProduct, deletProduct };
+const searchProduct = async (query) => {
+  const [result] = await connection.execute(
+    'SELECT * FROM products WHERE name LIKE ?',
+    [`${query}%`],
+  );
+  return result;
+};
+
+module.exports = {
+  getAll,
+getById,
+saveNewProduct,
+updateProduct,
+  deletProduct,
+searchProduct,
+};

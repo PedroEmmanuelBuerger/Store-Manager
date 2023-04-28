@@ -38,4 +38,20 @@ const deletProduct = async (id) => {
   return { type: null, message: result };
 };
 
-module.exports = { getAll, getById, saveNewProduct, updateProduct, deletProduct };
+const searchProduct = async (query) => {
+  const result = await productModel.searchProduct(query);
+  if (!result) {
+    const allProducts = await productModel.getAll();
+    return { type: null, message: allProducts };
+  }
+  return { type: null, message: result };
+};
+
+module.exports = {
+  getAll,
+getById,
+saveNewProduct,
+updateProduct,
+  deletProduct,
+searchProduct,
+};

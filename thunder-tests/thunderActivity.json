@@ -31,5 +31,25 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "2d9363d7-e399-4965-bace-35578ee486ee",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/ Copy Copy Copy",
+    "url": "http://localhost:3001/products/search?q=asdada",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-26T18:29:54.181Z",
+    "modified": "2023-04-28T19:30:25.452Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "asdada",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]
