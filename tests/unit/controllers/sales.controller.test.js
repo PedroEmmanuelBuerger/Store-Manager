@@ -155,4 +155,36 @@ describe('testes unitarios da camada controller em relação ao sales', function
       expect(res.json).to.have.been.calledWith({ message: resultByIdError.message });
     });
   });
+  describe('testa da função deleteProduct', function () {
+    it('verifica se ele retorna true', async function () {
+
+      sinon.stub(saleServices, 'deleteSale').resolves({ type: null, message: true });
+
+      const req = { params: { id: 1 } };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await salesController.deleteSale(req, res);
+
+      expect(res.status).to.have.been.calledWith(204);
+      expect(res.json).to.have.been.calledWith();
+    });
+    it('verifica se caso não exista o id retorna um erro', async function () {
+
+      sinon.stub(saleServices, 'deleteSale').resolves(resultByIdError);
+
+      const req = { params: { id: 15 } };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await salesController.deleteSale(req, res);
+
+      expect(res.status).to.have.been.calledWith(404);
+      expect(res.json).to.have.been.calledWith({ message: resultByIdError.message });
+    });
+  });
 });

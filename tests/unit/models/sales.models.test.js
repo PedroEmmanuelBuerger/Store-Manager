@@ -44,7 +44,18 @@ describe('testes unitarios da camada model em relação ao sales', function () {
 
       expect(result).to.be.deep.equal(salesById);
       expect(result).to.be.an('array');
+    });
+  });
+  describe('testa da função deleteProduct', function () {
+    it('verifica se ele retorna true', async function () {
+      
+      sinon.stub(connection, 'execute')
+        .onFirstCall().resolves()
+        .onSecondCall().resolves();
+      
+      const result = await salesModel.deleteSale(1);
 
+      expect(result).to.be.true;
     });
   });
 });

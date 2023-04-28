@@ -30,7 +30,7 @@ const deleteSale = async (id) => {
   if (sale.length <= 0) {
     return { type: 'SALE_NOT_FOUND', message: 'Sale not found' };
   }
-  const result = salesModel.deleteSale(id);
+  const result = await salesModel.deleteSale(id);
 
   return { type: null, message: result };
 };

@@ -75,4 +75,21 @@ describe('testes unitarios da camada service em relação ao sales', function ()
 
     });
   });
+  describe('testa da função deleteProduct', function () {
+    it('verifica se ele retorna true', async function () {
+      sinon.stub(salesModel, 'getById').resolves(salesById);
+      sinon.stub(salesModel, 'deleteSale').resolves(true);
+
+      const result = await saleServices.deleteSale(1);
+
+      expect(result).to.be.deep.equal({ type: null, message: true });
+    });
+    it('verifica se caso não exista o id retorna um erro', async function () {
+      sinon.stub(salesModel, 'getById').resolves([]);
+
+      const result = await saleServices.deleteSale(999);
+
+      expect(result).to.be.deep.equal({ type: 'SALE_NOT_FOUND', message: 'Sale not found' });
+    });
+  });
 });
