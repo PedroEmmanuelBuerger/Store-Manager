@@ -68,4 +68,21 @@ describe('testes unitarios da camada service em relação aos produtos', functio
       expect(result).to.be.an('object');
     });
   });
+  describe('testa a função deleteProduct ', function () {
+    it('testa se retorna true ao excluir um item', async function () {
+      sinon.stub(productModel, 'getById').resolves(productSolo);
+      sinon.stub(productModel, 'deletProduct').resolves(true);
+
+      const result = await productServices.deletProduct(2);
+
+      expect(result).to.be.deep.equal({ type: null, message: true });
+    });
+    it('verifica se ao passar um item invalido ele retorna um erro', async function () {
+      sinon.stub(productModel, 'getById').resolves(undefined);
+
+      const result = await productServices.deletProduct(999);
+
+      expect(result).to.be.deep.equal({ type: 'PRODUCT_NOT_FOUND', message: 'Product not found' });
+    });
+  });
 });

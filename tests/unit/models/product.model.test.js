@@ -54,4 +54,13 @@ describe('testes unitarios da camada model em relação aos produtos', function 
       expect(result).to.be.an('object');
     });
   });
+  describe('testa a função deleteProduct ', function () {
+    it('testa se retorna true ao excluir um item', async function () {
+      sinon.stub(connection, 'execute').resolves();
+
+      const result = await productModel.deletProduct(1);
+
+      expect(result).to.be.true
+    })
+  });
 });

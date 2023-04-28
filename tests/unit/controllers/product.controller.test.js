@@ -158,4 +158,38 @@ describe('testes unitarios da camada controller em relação aos produtos', func
       expect(res.json).to.have.been.calledWith({ message: resultErrorupdate.message });
     });
   });
+  describe('testa a função deleteProduct ', function () {
+    it('testa se retorna true ao excluir um item', async function () {
+      sinon.stub(productServices, 'deletProduct').resolves({ type: null, message: true });
+
+      const req = {
+        params: { id: 1 },
+      };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      
+      await productController.deletProduct(req, res);
+
+      expect(res.status).to.have.been.calledWith(204);
+      expect(res.json).to.have.been.deep.calledWith();
+    })
+    it('verifica se ao receber um erro de services retorna um erro', async function () {
+      sinon.stub(productServices, 'deletProduct').resolves(resultErrorupdate);
+
+      const req = {
+        params: { id: 999 },
+      };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await productController.deletProduct(req, res);
+
+      expect(res.status).to.have.been.calledWith(404);
+      expect(res.json).to.have.been.calledWith({ message: resultErrorupdate.message });
+    });
+  });
 });
