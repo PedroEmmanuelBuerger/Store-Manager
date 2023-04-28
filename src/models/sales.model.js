@@ -41,8 +41,21 @@ ORDER BY S.sale_id, S.product_id`,
   return sales;
 };
 
+const deleteSale = async (id) => {
+  await connection.execute(
+    'DELETE FROM StoreManager.sales WHERE id = ?',
+    [id],
+  );
+  await connection.execute(
+    'DELETE FROM StoreManager.sales_products WHERE sale_id = ?',
+    [id],
+  );
+  return true;
+};
+
 module.exports = {
   addNewSale,
   getAll,
   getById,
+  deleteSale,
 };
