@@ -38,7 +38,16 @@ INNER JOIN sales_products as S
 WHERE S.sale_id = ?
 ORDER BY S.sale_id, S.product_id`,
       [id]);
+  console.log(sales);
   return sales;
+};
+
+const isoledSale = async (id) => {
+  const [[result]] = await connection.execute(
+    'SELECT * FROM StoreManager.sales WHERE id = ?',
+    [id],
+  );
+  return result;
 };
 
 const deleteSale = async (id) => {
@@ -53,9 +62,28 @@ const deleteSale = async (id) => {
   return true;
 };
 
+const updateSale = async (sales, id) => {
+  const date = formatDate();
+  await connection.execute('UPDATE StoreManager.sales SET date = ? WHERE id = ?',
+    [date, id]);
+
+  await Promise.all(
+    sales.map(async (sale) => {
+      await connection
+        .execute(`UPDATE StoreManager.sales_products
+         SET product_id = ?, quantity = ? WHERE product_id = ?`,
+          [sale.productId, sale.quantity, sale.productId]);
+    }),
+  );
+  const newObj = { saleId: id, itemsUpdated: sales };
+  return newObj;
+};
+
 module.exports = {
   addNewSale,
   getAll,
   getById,
   deleteSale,
+  updateSale,
+  isoledSale,
 };
