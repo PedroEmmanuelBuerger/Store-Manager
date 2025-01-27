@@ -1,35 +1,42 @@
 # Store Manager
-O Store Manager é um projeto desenvolvido para gerenciar uma loja virtual, permitindo que os usuários realizem operações como adicionar, editar e remover produtos, além de gerenciar o estoque e acompanhar as vendas.
 
-## Funcionalidades
-O projeto possui as seguintes funcionalidades:
-- Cadastro de produtos: permite adicionar informações dos produtos, como nome, preço e quantidade disponível.
-- Edição de produtos: possibilita a edição das informações de um produto já cadastrado.
-- Remoção de produtos: permite remover um produto da lista.
-- Gerenciamento de estoque: possibilita o controle do estoque, registrando as entradas e saídas de produtos.
-- Acompanhamento de vendas: exibe relatórios e estatísticas das vendas realizadas.
+The Store Manager is a project developed to manage an online store, allowing users to perform operations such as adding, editing, and removing products, as well as managing inventory and tracking sales.
 
-## Tecnologias Utilizadas
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
-- JavaScript
-- Node.js
-- MySql
-- Postman
-- Beekeper
-- Modelo MSC(model, service e controller)
+## Features
 
-## Instalação
+The project includes the following features:
 
-Para instalar e executar o projeto localmente, siga os passos abaixo:
-1. Clone o repositório para sua máquina local:
-git clone https://github.com/PedroEmmanuelBuerger/project-Store-Manager.git
-2. Instale o Node.js em sua máquina.
-3. Na pasta do projeto, instale as dependências executando o comando: npm install
-5. Inicie o servidor executando o comando: npm start
-6. Acesse o projeto em seu navegador no endereço: `http://localhost:3001`.
+- **Product Registration:** Allows adding product information, such as name, price, and available quantity.
+- **Product Editing:** Enables editing the details of an already registered product.
+- **Product Removal:** Allows removing a product from the list.
+- **Inventory Management:** Facilitates inventory control, recording product entries and exits.
+- **Sales Tracking:** Displays reports and statistics of sales made.
 
-## Principais Aprendizados
-Durante o desenvolvimento deste projeto, foram explorados os conceitos de desenvolvimento web com Node.js e javascript com sequelize, além da integração com o banco de dados MySql. Também foram aplicados conhecimentos MSC( Model, service e controller) a qual cada parte dó codigo deve estar separada uma da outra, abrindo vantagem para uma futura refatoração, e tambem deixando o código mais organizado.
+## Technologies Used
 
-## Conclusão
-O projeto Store Manager oferece uma solução completa para o gerenciamento de uma loja virtual, desde o cadastro e edição de produtos até o controle de estoque e acompanhamento das vendas. Foi uma ótima oportunidade para praticar e aprimorar habilidades em desenvolvimento web com Node.js e MySql.
+The project was developed using the following technologies:
+
+- **JavaScript**
+- **Node.js**
+- **MySQL**
+- **Postman**
+- **Beekeeper**
+- **MSC Model (Model, Service, and Controller)**
+
+## Installation
+
+To install and run the project locally, follow these steps:
+
+- Clone the repository to your local machine: `git clone https://github.com/PedroEmmanuelBuerger/project-Store-Manager.git`
+- Install Node.js on your machine.
+- In the project folder, install the dependencies by running the command: `npm install`
+- Start the server by running the command: `npm start`
+- Access the project in your browser at `http://localhost:3001`.
+
+## Key Learnings
+
+During the development of this project, the concepts of web development with Node.js and JavaScript using Sequelize were explored, along with integration with the MySQL database. MSC (Model, Service, Controller) knowledge was also applied, where each part of the code is separated from one another, providing advantages for future refactoring and keeping the code more organized.
+
+## Conclusion
+
+The Store Manager project provides a complete solution for managing an online store, from product registration and editing to inventory control and sales tracking. It was a great opportunity to practice and enhance skills in web development with Node.js and MySQL.
